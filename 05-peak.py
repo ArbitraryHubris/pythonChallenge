@@ -2,6 +2,7 @@
 # use pickle to deserialize the banner.p linked in the source
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
+import pickle
 
 
 def requestURL(req):
@@ -19,4 +20,12 @@ def requestURL(req):
 
 response = requestURL('http://www.pythonchallenge.com/pc/def/banner.p')
 banner = pickle.load(response)
-print(banner)
+for line in banner:
+    lineString=''
+    for character in line:
+        for x in range(1, character[1]):
+            lineString+=character[0]
+    print(lineString)
+print('end')
+
+
