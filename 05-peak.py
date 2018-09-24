@@ -23,7 +23,7 @@ banner = pickle.load(response)
 for line in banner:
     lineString=''
     for character in line:
-        for x in range(1, character[1]):
+        for x in range(0, character[1]):
             lineString+=character[0]
     print(lineString)
 print('end')
