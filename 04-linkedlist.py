@@ -15,3 +15,9 @@ def requestURL(req):
         print('Reason: ', e.reason)
     else:
         return response
+
+
+response = requestURL(
+    'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345')
+print(response)
+
