@@ -18,7 +18,7 @@ def requestURL(req):
         return response
 
 
-response = requestURL('http://www.pythonchallenge.com/pc/def/banner.p')
+""" response = requestURL('http://www.pythonchallenge.com/pc/def/banner.p')
 banner = pickle.load(response)
 for line in banner:
     lineString=''
@@ -26,6 +26,13 @@ for line in banner:
         for x in range(0, character[1]):
             lineString+=character[0]
     print(lineString)
+print('end') """
+
+response = requestURL('http://www.pythonchallenge.com/pc/def/banner.p')
+banner = pickle.load(response)
+for line in banner:
+    lineString=''
+    for character in line:
+        lineString+=character[0]*character[1]
+    print(lineString)
 print('end')
-
-
