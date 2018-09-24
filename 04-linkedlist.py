@@ -2,6 +2,7 @@
 
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
+import re
 
 
 def requestURL(req):
@@ -16,8 +17,10 @@ def requestURL(req):
     else:
         return response
 
-
-response = requestURL(
-    'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345')
-print(response)
-
+nothing='8022'
+urlBase = 'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing='
+for x in range(1,400):
+    response = requestURL(urlBase + nothing)
+    responseString = response.read().decode('utf-8')
+    print(responseString)
+    nothing = re.search('[0-9]+$',responseString).group()
